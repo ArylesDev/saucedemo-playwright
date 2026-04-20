@@ -117,18 +117,14 @@ npx playwright show-report
 
 ## ⚙️ CI/CD
 
-### GitHub Actions
+## ⚙️ CI/CD
+
+### GitHub Actions ✅
 
 Les tests se lancent automatiquement à chaque push sur `main`
 via GitHub Actions — pipeline configuré dans `.github/workflows/playwright.yml`.
 
-### Azure Pipelines
+### Azure Pipelines 📄
 
-Pipeline configuré dans `azure-pipelines.yml` pour s'intégrer
+Pipeline préparé dans `azure-pipelines.yml` pour une intégration
 dans un environnement Microsoft Azure DevOps.
-
-Les deux pipelines :
-
-- Installent les dépendances automatiquement
-- Lancent les 7 tests sur Chrome
-- Génèrent un rapport de résultats

@@ -13,12 +13,13 @@ connexion → ajout de produits → panier → checkout → confirmation.
 - **Playwright** — framework de tests E2E
 - **TypeScript** — typage statique pour plus de robustesse
 - **GitHub Actions** — CI/CD automatisée à chaque push
+- **Azure Pipelines** — CI/CD sur environnement Microsoft
 
 ---
 
 ## 🏗️ Structure du projet
 
-aucedemo-playwright/
+saucedemo-playwright/
 ├── tests/
 │ └── checkout.spec.ts # Fichier de tests principal
 ├── pages/ # Pattern Page Object Model
@@ -28,7 +29,11 @@ aucedemo-playwright/
 │ └── CheckoutPage.ts # Pages checkout et confirmation
 ├── data/
 │ └── testData.ts # Données de test centralisées
-└── playwright.config.ts # Configuration Playwright
+├── .github/
+│ └── workflows/
+│ └── playwright.yml # Pipeline GitHub Actions
+├── azure-pipelines.yml # Pipeline Azure Pipelines
+└── playwright.config.ts # Configuration Playwrigh
 
 ---
 
@@ -112,5 +117,18 @@ npx playwright show-report
 
 ## ⚙️ CI/CD
 
+### GitHub Actions
+
 Les tests se lancent automatiquement à chaque push sur `main`
-via GitHub Actions.
+via GitHub Actions — pipeline configuré dans `.github/workflows/playwright.yml`.
+
+### Azure Pipelines
+
+Pipeline configuré dans `azure-pipelines.yml` pour s'intégrer
+dans un environnement Microsoft Azure DevOps.
+
+Les deux pipelines :
+
+- Installent les dépendances automatiquement
+- Lancent les 7 tests sur Chrome
+- Génèrent un rapport de résultats

@@ -15,14 +15,14 @@ export default defineConfig({
   // Un seul worker en CI pour la stabilité
   workers: process.env.CI ? 1 : undefined,
 
-  // Rapport HTML généré après les tests
-  reporter: "html",
+  // Rapport HTML + JUnit pour Azure Pipelines
+  reporter: [["html"], ["junit", { outputFile: "test-results/results.xml" }]],
 
   use: {
     // L'adresse de base de SauceDemo
     baseURL: "https://www.saucedemo.com",
 
-    // Capture une trace si un test échoue (très utile pour déboguer)
+    // Capture une trace si un test échoue
     trace: "on-first-retry",
 
     // Screenshot automatique en cas d'échec

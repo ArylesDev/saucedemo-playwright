@@ -107,9 +107,13 @@ l'exécution des tests — plus robuste que JavaScript pur.
 
 ## 📊 Rapport de tests
 
-Après exécution, un rapport HTML détaillé est généré :
+Après chaque push, un rapport HTML détaillé est généré et disponible
+dans l'onglet **Actions** de GitHub → section **Artifacts**.
+
+Pour le consulter en local :
 
 ```bash
+npx playwright test
 npx playwright show-report
 ```
 
